@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import logo from "./img/MYtineraryLogo.png";
-import logoarrow from "./img/circled-right-2.png";
+import logo from "./components/img/MYtineraryLogo.png";
+import logoarrow from "./components/img/circled-right-2.png";
 import Footer from './components/Footer.js';
 
 class App extends React.Component {
@@ -11,12 +11,11 @@ class App extends React.Component {
         <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
         </div>
-        <br></br>
         <div className="App-body">
             <p>
             Find your perfect trip, designed by insiders who know and love their cities.
             </p>
-            <br></br>
+
             <h3>Start browsing</h3>
             <a
                 className="App-link"
@@ -26,7 +25,6 @@ class App extends React.Component {
             >
             <img src={logoarrow} className="App-arrow" alt="logo" />
             </a>
-            <br></br>
             <p>Want to build your own MYtinerary?</p>
             <div className="row">
                 <div className="col-sm-6">
