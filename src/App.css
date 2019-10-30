@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.App {
+.Home {
   width: 100%;
   display: table;
   text-align: center;
@@ -23,7 +23,7 @@
 }
 
 .App-home {
-  height: 15vmin;
+  height: 8vmin;
 }
 
 .App-header {
