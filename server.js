@@ -14,6 +14,10 @@ app.set("port", process.env.PORT || 3000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
+const citiesRouter = require("./routes/cities");
+
+app.use("/cities", citiesRouter);
+
 app.listen(app.get("port"), () =>  {
   console.log("Listening at: ", app.get("port"));
 });
