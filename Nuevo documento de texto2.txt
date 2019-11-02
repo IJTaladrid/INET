@@ -1,0 +1,88 @@
+https://ubiqum.atlassian.net/wiki/spaces/STUDENTS/pages/211779585/MERN+Sprint+2+Resources
+https://www.javascriptjanuary.com/blog/basic-routing-http-requests-and-crud-operations-with-express-and-mongodb
+https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/
+https://app.slack.com/client/TNEB7HHPU/CNLMP3AF3
+https://www.youtube.com/watch?v=5yTazHkDR4o&t=1059s
+
+[
+    {
+        "name": "London",
+        "country": "UK"
+    },
+    {
+        "name": "Berlin",
+        "country": "Germany"
+    },
+    {
+        "name": "Madrid",
+        "country": "Spain"
+    },
+    {
+        "name": "Rome",
+        "country": "Italy"
+    },
+    {
+        "name": "Paris",
+        "country": "France"
+    },
+    {
+        "name": "Bucharest",
+        "country": "Romania"
+    },
+    {
+        "name": "Budapest",
+        "country": "Hungary"
+    },
+    {
+        "name": "Hamburg",
+        "country": "Germany"
+    },
+    {
+        "name": "Warsaw",
+        "country": "Poland"
+    },
+    {
+        "name": "Belgrade",
+        "country": "Serbia"
+    },
+    {
+        "name": "Vienna",
+        "country": "Austria"
+    },
+    {
+        "name": "Milan",
+        "country": "Italy"
+    },
+    {
+        "name": "Munich",
+        "country": "Germany"
+    },
+    {
+        "name": "Prague",
+        "country": "Czech Republic"
+    },
+    {
+        "name": "Sofia",
+        "country": "Bulgaria"
+    },
+    {
+        "name": "Napoli",
+        "country": "Italy"
+    },
+    {
+        "name": "Stockholm",
+        "country": "Sweden"
+    },
+    {
+        "name": "Helsinki",
+        "country": "Finland"
+    },
+    {
+        "name": "Copenhagen",
+        "country": "Denmark"
+    },
+    {
+        "name": "Oslo",
+        "country": "Norway"
+    }
+]
