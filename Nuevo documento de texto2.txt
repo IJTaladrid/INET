@@ -3,7 +3,6 @@ https://www.javascriptjanuary.com/blog/basic-routing-http-requests-and-crud-oper
 https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/
 https://app.slack.com/client/TNEB7HHPU/CNLMP3AF3
 https://www.youtube.com/watch?v=5yTazHkDR4o&t=1059s
-
 [
     {
         "name": "London",

@@ -9,18 +9,15 @@ const City = require("../../models/city.model");
 // @access  Public
 router.get('/', (req, res) => {
     City.find()
-        .then(cities => res.json(cities))
+    .then(cities => res.json(cities))
 });
 
 // @route   POST api/cities
 // @desc    Create a Post
 // @access  Public
 router.post('/', (req, res) => {
-    const newCity = new City({
-        name: req.body.name,
-        country: req.body.country
-    });
-    newCity.save().then(city => res.json(city));
+    City.insertMany(req.body)
+    .then(cities => res.json(cities))
 });
 
 module.exports = router;
