@@ -10,7 +10,7 @@ const City = require("../../models/city.model");
 // @access  Public
 router.get('/', cors(), (req, res) => {
     City.find()
-    .then(cities => res.json(cities))
+    .then(cities => res.json(cities));
 });
 
 // @route   POST api/cities
