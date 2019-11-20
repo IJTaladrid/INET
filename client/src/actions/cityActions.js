@@ -2,14 +2,16 @@ import axios from "axios";
 import { GET_CITIES, CITIES_LOADING } from './types';
 
 export const getCities = () => dispatch => {
+
     dispatch(setCitiesLoading());
     axios
         .get("api/cities")
-        .then(res => 
+        .then(res => {
             dispatch({
             type: GET_CITIES,
             payload: res.data
-        })
+        });
+        }
     )
     
     /*const url = "http://localhost:5000/api/cities";
@@ -21,5 +23,4 @@ export const getCities = () => dispatch => {
 export const setCitiesLoading = () =>   {
     return  {
         type: CITIES_LOADING
-    }
-}
+    }}
