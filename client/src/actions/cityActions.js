@@ -11,8 +11,7 @@ export const getCities = () => dispatch => {
             type: GET_CITIES,
             payload: res.data
         });
-        }
-    )
+        })
     
     /*const url = "http://localhost:5000/api/cities";
     const response = await fetch(url);

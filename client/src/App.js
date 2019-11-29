@@ -7,7 +7,7 @@ import Account from "./components/Account";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import store from './store';
 import { Provider } from "react-redux";
-
+import Itinerary from './components/Itinerary';
 
 class App extends React.Component {
   render()  {
@@ -19,6 +19,7 @@ class App extends React.Component {
                   <Route exact path="/Account" component={Account} />
                   <Route exact path="/Login" component={Login} />
                   <Route exact path="/Cities" component={Cities} />
+                  <Route exact path="/Itinerary/:ciudad/:id" component={Itinerary} />
               </Router>
           </div>
       </Provider>

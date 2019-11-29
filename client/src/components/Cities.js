@@ -3,9 +3,10 @@ import Footer from './Footer.js';
 import { connect } from "react-redux";
 import { getCities } from "../actions/cityActions";
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
+
 
 class Cities extends React.Component{
-    
     constructor(props)  {
         super(props);
         this.state = {
@@ -52,9 +53,11 @@ class Cities extends React.Component{
                         />
                         <ul className="list-group">
                             {filteredCities.map(city => (
-                                <li key={city._id} className="list-group-item">
-                                { city.name + " - " + city.country }
-                                </li>
+                                <Link to={"/Itinerary/"+ city.name + '/' + city._id}>  
+                                    <li key={city._id} className="list-group-item">
+                                        { city.name + " - " + city.country }
+                                    </li>
+                                </Link>
                             ))}
                         </ul>
                     </div>
