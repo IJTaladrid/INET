@@ -1,20 +1,132 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import axios from "axios";
 import Footer from './Footer.js';
 
-const Account = () =>    {
-    return  (
-        <div className="container">
-            <h4 className="center">Account</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat 
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <Footer />
-        </div>
-    )
+class Account extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+          data: []
+        }
+      }
+
+    handleChange = ({target}) => {
+        this.setState({ [target.name]: target.value});
+    };
+
+    handleSubmit = event => {
+        event.preventDefault();
+        const info = this.state;
+        /*const data = [...this.state.data, info];
+        this.setState({
+            data: data
+        })
+        alert('An essay was submitted: ' + this.state.data);*/
+        console.log(info);
+        axios
+            .post('api/users', info)
+            .then(res =>
+                console.log(res))
+    };
+
+    render () {
+        return (
+            <div className="container">
+            <h4 className="center">Create Account</h4>
+            <form className="form center" onSubmit={this.handleSubmit}>
+                <div>
+                <label>Add Photo
+                    <input 
+                        type="url" 
+                        name="profile_picture"
+                        value={this.state.profile_picture}
+                        onChange={this.handleChange}
+                    />
+                </label>
+                </div>
+                <div>
+                <label>First Name
+                    <input 
+                        type="text" 
+                        name="first_name"
+                        value={this.state.first_name}
+                        onChange={this.handleChange}
+                    />
+                </label>
+                </div>
+                <div>
+                <label>Last Name
+                    <input 
+                        type="text" 
+                        name="last_name"
+                        value={this.state.last_name}
+                        onChange={this.handleChange} 
+                    />
+                </label>
+                </div>
+                <div>
+                <label>Email
+                    <input 
+                        type="email" 
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                    />
+                </label>
+                </div>
+                <div>
+                <label>Username
+                    <input 
+                        type="text" 
+                        name="username"
+                        value={this.state.username}
+                        onChange={this.handleChange} 
+                    />
+                </label>
+                </div>
+                <div>
+                <label>Password
+                    <input 
+                        type="password" 
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.handleChange} 
+                    />
+                </label>
+                </div>
+                <div>
+                <label>Country
+                <select 
+                    name="country" 
+                    value={this.state.country} 
+                    onChange={this.handleChange} 
+                    className="browser-default">
+                        <option>Choose...</option>
+                        <option value="england">England</option>
+                        <option value="france">France</option>
+                        <option value="germany">Germany</option>
+                        <option value="holland">Holland</option>
+                        <option value="ireland">Ireland</option>
+                        <option value="spain">Spain</option>
+                        <option value="usa">United States</option>
+                </select>
+                </label>
+                </div>
+                <div>
+                <label>
+                <input type="checkbox" checked={this.state.checked} />
+                <span>I agree to MYtinerary's <Link to="">Terms & Conditions</Link></span>
+                </label>
+                </div>
+                <div>
+                <input type="submit" value="OK" />
+                </div>
+            </form>
+            <Footer />
+            </div>
+            )
+        }
 }
 
 export default Account

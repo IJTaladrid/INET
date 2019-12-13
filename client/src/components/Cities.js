@@ -54,7 +54,7 @@ class Cities extends React.Component{
                         <ul className="list-group">
                             {filteredCities.map(city => (
                                 <Link to={"/Itinerary/"+ city.name + '/' + city._id}>  
-                                    <li key={city._id} className="list-group-item">
+                                    <li key={city.name} className="list-group-item">
                                         { city.name + " - " + city.country }
                                     </li>
                                 </Link>

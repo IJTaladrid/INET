@@ -5,6 +5,7 @@ mongoose.set('useUnifiedTopology', true);
 
 const cities = require("./routes/api/cities_api");
 const itinerary = require("./routes/api/itinerary_api");
+const users = require("./routes/api/users_api");
 
 const app = express();
 
@@ -21,6 +22,7 @@ mongoose.connect("mongodb+srv://IJTaladrid:NtwecbBxtErqPNkh@ijtcluster-5odss.mon
 
 app.use("/api/cities", cities);
 app.use("/api/itinerary", itinerary);
+app.use("/api/users", users);
 
 app.set("port", process.env.PORT || 5000);
 
