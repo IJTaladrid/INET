@@ -1,11 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const cors = require ("cors");
+const passport = require("../../config/passport");
 
 const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 const { check, validationResult } = require("express-validator");
 
+const key = require("../../config/keys").secretOrKey;
+const jwt = require("jsonwebtoken");
+
+
+// User model
 const User = require("../../models/user.model");
 
 router.post("/", cors(), [
@@ -24,19 +30,63 @@ router.post("/", cors(), [
         country: req.body.country
       });
       bcrypt.hash(req.body.password, saltRounds, function (error, hash){
-        if(error) throw error
+        if(error) {
+          console.log(error);
+          res.sendStatus(500);
+          return;
+        }
         user.password = hash
-        user.save().then(user => res.json(user))
-          .then(user =>{
-            res.json(user.username)
-            res.redirect("/login")
+        user.save()
+          .then(user => {
+            res.json(user)
           }).catch(e => console.log(e))
       });
-      const errors = validationResult(req)
+      const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() })
+        res.status(422).json({ errors: errors.array() })
+        return;
       }
 
-})
+});
+
+router.post('/login', cors(), (req, res) => {
+  User.findOne({username: req.body.username})
+	.then(user =>
+		bcrypt.compare(req.body.password, user.password, function(err){
+			if (!err) {
+				jwt.sign(
+					{id: user._id},
+					key,
+					{expiresIn: 2592000},
+					(err, token) => {
+					  if(err){
+						res.json({
+						  success: false,
+						  token: "There was an error"
+						});
+					  }else {
+						res.json({
+						  success: true,
+						  token: token
+						});
+					  }
+					}
+				);
+			} else {
+				res.send('Error')
+			}
+		})
+	).catch(e => console.log(e))
+});
+
+router.get("/test", passport.authenticate("jwt", { session: false }), (req, res) => {
+	User
+	.findOne({ _id: req.user.id })
+	.then(user => {
+		res.json(user);
+	})
+	.catch(err => res.status(404).json({ error: "User does not exist!" }));
+	}
+);
 
 module.exports = router;

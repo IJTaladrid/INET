@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const itinerarySchema = new Schema({
   title: String,
+  username: String,
   profile_picture: String,
   rating: Number,
   duration: Number,

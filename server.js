@@ -2,6 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 mongoose.set('useUnifiedTopology', true);
+const passport = require("passport");
+
+//DB config
+const db = require("./config/keys").mongoURI;
 
 const cities = require("./routes/api/cities_api");
 const itinerary = require("./routes/api/itinerary_api");
@@ -9,12 +13,17 @@ const users = require("./routes/api/users_api");
 
 const app = express();
 
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport");
+
 // Bodyparser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 // Connect to Mongo
-mongoose.connect("mongodb+srv://IJTaladrid:NtwecbBxtErqPNkh@ijtcluster-5odss.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true })
+mongoose.connect(db, { useNewUrlParser: true })
         .then(() => console.log("MongoDB connected..."))
         .catch(err => console.log(err));
 

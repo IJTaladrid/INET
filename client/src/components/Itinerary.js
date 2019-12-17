@@ -40,10 +40,11 @@ class Itinerary extends React.Component{
               <li key={itinerary._id} className="list-group-item" >
                 <div className="float left">
                   <img src={ itinerary.profile_picture } alt=""></img>
+                  <h6>{ itinerary.username }</h6>
                 </div>
                 <div className="float right">
                   <h4>{ itinerary.title }</h4>
-                  <h6>Likes: { itinerary.rating }</h6>
+                  <h6>Rating: { itinerary.rating }</h6>
                   <h6>{ itinerary.duration } Hours</h6>
                   <h6>{ itinerary.price }</h6>
                   <h6>{ itinerary.hashtags.join(" ") }</h6>
