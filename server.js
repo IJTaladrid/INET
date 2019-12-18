@@ -10,6 +10,7 @@ const db = require("./config/keys").mongoURI;
 const cities = require("./routes/api/cities_api");
 const itinerary = require("./routes/api/itinerary_api");
 const users = require("./routes/api/users_api");
+const auth = require("./routes/api/auth_api");
 
 const app = express();
 
@@ -32,6 +33,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use("/api/cities", cities);
 app.use("/api/itinerary", itinerary);
 app.use("/api/users", users);
+app.use("/api/auth/google", auth);
 
 app.set("port", process.env.PORT || 5000);
 

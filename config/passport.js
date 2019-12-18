@@ -22,3 +22,18 @@ module.exports = passport.use(
         .catch(err => console.log(err));
     })
 );
+
+// Google strategy
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+passport.use(new GoogleStrategy({
+    clientID: key.client_id,
+    clientSecret: key.client_secret,
+    callbackURL: "/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));

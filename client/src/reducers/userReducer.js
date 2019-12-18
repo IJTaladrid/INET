@@ -1,7 +1,8 @@
 import { POST_USER, USER_LOADING } from "../actions/types";
 
 const initialState = {
-  user: ""
+  user: "",
+  loading: false
 }
 
 export default function(state = initialState, action) {

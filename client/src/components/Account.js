@@ -4,6 +4,10 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import Footer from './Footer.js';
 
+import {connect} from 'react-redux';
+import {postUser} from "../actions/userActions";
+import PropTypes from 'prop-types';
+
 class Account extends React.Component{
     constructor(props) {
         super(props);
@@ -137,4 +141,12 @@ class Account extends React.Component{
         }
     }
 
-export default Account
+    Account.propTypes = {
+        postUser: PropTypes.func.isRequired,
+    }
+    
+    const mapStateToProps = (state) => ({
+        user: state.user
+    })
+    
+    export default connect(mapStateToProps, {postUser})(Account)

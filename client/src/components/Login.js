@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Login.css";
 import { Link } from 'react-router-dom';
 import Footer from './Footer.js';
 
@@ -19,6 +20,17 @@ class Login extends React.Component {
         const info = this.state;
         console.log(info);
     };
+
+    componentDidMount=()=>{
+        (function() {
+          var e = document.createElement("script");
+          e.type = "text/javascript";
+          e.async = true;
+          e.src = "https://apis.google.com/js/client:platform.js?onload=gPOnLoad";
+          var t = document.getElementsByTagName("script")[0];
+          t.parentNode.insertBefore(e, t)
+      })();
+    }
 
     render(){
         return (
@@ -66,11 +78,11 @@ class Login extends React.Component {
                         Create account</Link>
                     </button>}
                 </div>
+                <div className="g-signin2" data-onsuccess="onSignIn"></div>
             <Footer />
             </div>
         )
     }
 } 
-
 
 export default Login

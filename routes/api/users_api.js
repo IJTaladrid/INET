@@ -64,7 +64,7 @@ router.post('/login', cors(), (req, res) => {
 						  success: false,
 						  token: "There was an error"
 						});
-					  }else {
+					  } else {
 						res.json({
 						  success: true,
 						  token: token
