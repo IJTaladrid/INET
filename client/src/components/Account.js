@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import Header from "./Header";
 import Footer from './Footer.js';
 
-import {connect} from 'react-redux';
-import {postUser} from "../actions/userActions";
+import { connect } from 'react-redux';
+import { postUser } from "../actions/userActions";
 import PropTypes from 'prop-types';
 
 class Account extends React.Component{
@@ -43,9 +44,10 @@ class Account extends React.Component{
             return (<Redirect to="/Login"></Redirect>)
         } else {
             return (
-                <div className="container">
-                <h4 className="center">Create Account</h4>
-                <form className="form center" onSubmit={this.handleSubmit}>
+                <div className="container center">
+                <Header />
+                <h3>Create Account</h3>
+                <form className="form" onSubmit={this.handleSubmit}>
                     <div>
                     <label>Add Photo
                         <input 

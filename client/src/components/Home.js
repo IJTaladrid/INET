@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from "./img/MYtineraryLogo.png";
+// import logo from "./img/MYtineraryLogo.png";
 import logoarrow from "./img/circled-right-2.png";
+import Header from "./Header";
 import Footer from './Footer.js';
 
 class Home extends React.Component {
     render ()   {
         return  (
-
                 <div className="container">
                 <div className="Home">
-
-                    <div className="App-header">
+                    <Header />
+                    {/* <div className="App-header">
                         <img src={logo} className="App-logo" alt="logo" />
-                    </div>
+                    </div> */}
                     <div className="App-body">
                         <p>
                         Find your perfect trip, designed by insiders who know and love their cities.

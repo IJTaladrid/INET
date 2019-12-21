@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from "./Header";
 import Footer from './Footer.js';
 import { connect } from "react-redux";
 import { getCities } from "../actions/cityActions";
@@ -43,9 +44,10 @@ class Cities extends React.Component{
         } 
         else {
             return (
-                <div className="container">
-                    <h4 className="center">Cities</h4>
-                    <div className="center">
+                <div className="container center">
+                    <Header />
+                    <h3>Cities</h3>
+                    <div>
                         <input
                             type = "text"
                             value = { this.state.search }

@@ -1,7 +1,12 @@
 import React from 'react';
 import "./Login.css";
 import { Link } from 'react-router-dom';
+import Header from "./Header";
 import Footer from './Footer.js';
+
+import { connect } from 'react-redux';
+import { login } from "../actions/loginActions";
+import PropTypes from "prop-types";
 
 class Login extends React.Component {
     constructor(props)  {
@@ -9,6 +14,8 @@ class Login extends React.Component {
         this.state = {
             data: []
         };
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange = ({ target }) => {
@@ -35,7 +42,8 @@ class Login extends React.Component {
     render(){
         return (
             <div className="container center">
-                <h4>Login</h4>
+                <Header />
+                <h3>Login</h3>
                 <form className="form" onSubmit={this.handleSubmit}>
                     <div>
                         <label>Username
@@ -64,7 +72,7 @@ class Login extends React.Component {
                         </label>
                     </div>
                     <div>
-                        <input type="submit" value="OK" />
+                        <input type="submit" value="Login" onClick={this.handleSubmit} />
                     </div>
                 </form>
                 <div>
@@ -78,11 +86,21 @@ class Login extends React.Component {
                         Create account</Link>
                     </button>}
                 </div>
-                <div className="g-signin2" data-onsuccess="onSignIn"></div>
+                <div className="g-signin2" data-onsuccess="onSignIn" />
             <Footer />
             </div>
         )
     }
 } 
 
-export default Login
+Login.propTypes = {
+    login: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => {
+    return {
+      login: state.login
+    };
+};
+
+export default connect (mapStateToProps, {login}) (Login);
