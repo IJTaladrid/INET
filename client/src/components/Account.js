@@ -133,7 +133,7 @@ class Account extends React.Component{
                     </label>
                     </div>
                     <div>
-                    <input type="submit" value="OK" />
+                    <input type="submit" value="Register here" />
                     </div>
                 </form>
                 <Footer />
